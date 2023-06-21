@@ -1,25 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import useAuth from "./siteComponents/hooks/useAuth";
+//import LandingPage from "./siteComponents/landingPage";
+import Protected from "./siteComponents/protected";
+import Public from "./siteComponents/public";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const isLogin = useAuth();
+  return isLogin? <Protected/> : <Public/>
 }
 
 export default App;
